@@ -1,0 +1,410 @@
+/*--------------------- CONFIGURATION SECTION ---------------------------*/
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    --primary-color: #204b5e; 
+    --bg-color:#eee;
+   
+
+}
+
+body{
+    background-color: var(--bg-color);
+    font-family: "Quicksand", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+/*--------------------- HEADER SECTION ---------------------------*/
+
+
+
+.header{
+    display: flex;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    
+}
+
+.header__menu{
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+}
+
+.header__info{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+#header__check{
+    display: none;
+}
+
+.header__nav{
+    height: 100%;
+}
+
+
+.header__list{
+    
+    height: 100%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    list-style: none;
+    flex: 1;
+    padding-right: 1rem;
+}
+
+.header__link{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+}
+
+.header__item{
+    height: 100%;
+}
+
+
+.header__item:hover{
+    text-decoration: overline;
+}
+
+.header__picture{
+    max-width: clamp(50px,50%,100px);
+
+}
+
+.header__img{
+    max-width: 100%;
+    filter: drop-shadow(0 0 2px #fff);
+}
+
+/*--------------------- ABOUT SECTION ---------------------------*/
+
+
+.main{
+    max-width: 80%;
+    margin: auto;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 1rem;
+}
+
+
+
+#about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.about__data{
+    padding: 2rem;
+    flex: 1;
+}
+
+.about__h2{
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.about__p{
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.about__container-img{
+    
+    max-width: 500px;
+    max-height: 1300px ;
+
+    
+    overflow: hidden;
+    flex: 1;
+
+
+}
+
+.about__img{
+    margin-top: 20px;
+    max-width: clamp(200px, 100%, 900px);
+    
+    filter: contrast(1.5);
+
+
+
+
+}
+
+/*--------------------- PORTAFOLIO SECTION ---------------------------*/
+
+
+#portafolio{
+    background-color: #fff;
+    border-radius: 25px;
+
+
+}
+
+.portafolio__h2{
+    padding: 1rem;
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.portafolio__container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 1rem;
+    padding: 1rem;
+    max-width: 90%;
+    margin: 20px auto;
+    border-radius: 25px;
+
+
+}
+
+
+.portafolio__img{
+    max-width: clamp(200px, 100%, 500px);
+    border-radius: 25px;
+    transition: opacity 0.5s, outline 0.5s, transform 0.5s;
+}
+
+.portafolio__img:hover{
+    opacity: 0.8;
+    transform: rotate(2deg);
+
+}
+
+
+/*--------------------- PLANES SECTION ---------------------------*/
+
+#planes{
+    max-width: 100%;
+}
+
+.planes__h2, .card__title{
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    padding: 2rem;
+}
+
+.planes__cards{
+    max-width: 100%;
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: repeat(2, minmax(150px, 300px));
+}
+
+.card{
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 3rem;
+    position: relative;
+
+   
+}
+
+.card__front{
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    transform: perspective(1100px) rotateY(0);
+}
+
+.card__title{
+    text-align: center;
+
+
+}
+
+.card__img{
+    max-width: 150px;
+
+}
+
+.card__back{
+    transform: perspective(1100px) rotateY(180deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+    width: 80%;
+    height: 60%;
+
+   
+}
+
+.card__p{
+    font-size: 1.1rem;
+  
+}
+
+.card__front, .card__back{
+    backface-visibility: hidden;
+    transition: transform 1s;
+
+
+}
+
+.card__title{
+    font-size: 1.5rem;
+}
+
+.card:hover .card__back{
+    transform: rotateY(360deg);
+}
+
+.card:hover .card__front{
+    transform: rotateY(180deg);
+}
+
+/*--------------------- FOOTER SECTION ---------------------------*/
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 5vh;
+}
+
+.footer__method-contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding: 5px;
+}
+.footer__data{
+    padding: 5px;
+}
+
+
+.footer__title{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.footer__title--method{
+    font-size: 1rem;
+}
+
+/*--------------------- GENERAL  SECTIONS ---------------------------*/
+
+
+#about, #portafolio, .header, .footer, .card{
+    box-shadow: 0 0 5px 5px #204b5e2d;
+
+}
+
+
+/*--------------------- MEDIA  SECTION ---------------------------*/
+
+
+@media screen and (max-width: 600px) {
+
+
+
+    .header__list{
+        display: none;
+
+    }
+
+    .header__menu{
+        display: block;
+    }
+
+    .header__menu-item{
+        font-size: 2rem;
+
+
+    }
+
+    #about, #portafolio, .card{
+        box-shadow: none;
+        border-radius: 0;
+    } 
+
+
+    .main{
+        max-width: 100%;
+        padding: 0;
+    }
+    #about{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .planes__cards{
+        grid-template-columns: 1fr;
+    }
+
+    .footer{
+        flex-direction: column;
+    }
+
+    .header:has(#header__check:checked){
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        overflow-y: hidden;
+    }
+
+    .header:has(#header__check:checked) .header__list{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .header:has(#header__check:checked) .header__info{
+        flex-direction: column;
+        flex: 0;
+    }
+
+    
+
+
+
+    
+    
+}
+
+
+
+
+
+

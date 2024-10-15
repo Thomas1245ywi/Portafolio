@@ -1,0 +1,131 @@
+
+/* -------------------------------- CONFIGURATION SECTION ----------------------------- */
+
+body{
+    margin: 0;
+    --color-primary:#627ba0;
+    background-color: var(--color-primary);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(0.8rem, 1.1vw, 1.2rem);
+
+}
+*{
+    box-sizing: border-box;
+}
+
+.container-form{
+    width: 70vw;
+    height: 70dvh;
+    display: flex;
+    margin: 5rem auto;
+    background-color: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 5px #00000044;
+
+
+}
+
+
+
+.container-form__image-container{
+    max-width: clamp(300px, 60%, 500px);
+    height: 100%;
+    flex:1;
+}
+
+.container-form__image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+
+.container-form__form{
+    flex: 1.5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2rem;
+    gap: 10px;
+    
+}
+
+.container-form__title-container{
+    position: relative;
+}
+
+.container-form__title::before{
+    
+    content: '';
+    bottom: 0;
+    position: absolute;
+    width: 5rem;
+    height: 2px;
+    background-color: var(--color-primary);
+
+}
+
+.container-form__item{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-form__label{
+    font-weight: 600;
+
+}
+
+.container-form__input{
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px var(--color-primary);
+    color: #1f4174;
+    font-size: inherit;
+}
+
+.container-form__input::placeholder{
+    color: var(--color-primary);
+  
+}
+
+.container-form__button{
+    width: 20%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 1rem 0;
+    align-self: end;
+    
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+@media screen and (max-width:800px) {
+
+    .container-form{
+        flex-direction: column;
+        width: 100%;
+        height: 100dvh;
+        border-radius: 0;
+        margin: 15px 0;
+
+    }
+
+    .container-form__image-container{
+        max-width: 100%;
+        
+    }
+
+    .container-form__form{
+        padding:15px;
+    }
+  
+}

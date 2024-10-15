@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+
+            <div class="sidebar__item">
+                <span class="sidebar__icon material-symbols-outlined">home</span>
+                <h2 class="sidebar__title">Inicio</h2>
+            </div>
+
+            <div class="sidebar__item">
+                <span class="sidebar__icon material-symbols-outlined">search</span>
+                <h2 class="sidebar__title">Buscar</h2>
+
+            </div>
+            <div class="sidebar__item">
+                <span class="sidebar__icon material-symbols-outlined">build</span>
+                <h2 class="sidebar__title">Configuracion</h2>
+
+            </div>
+            <div class="sidebar__item">
+                <span class="sidebar__icon material-symbols-outlined">trending_up</span>
+                <h2 class="sidebar__title">Estadisticas</h2>
+
+            </div>
+
+            <div class="sidebar__button">
+                
+                <label for="sidebar__check" class="sidebar__rigth"><span aria-label="menu" class="sidebar__icon-button material-symbols-outlined">Menu</span></label>
+                <label for="sidebar__check" class="sidebar__left"><span aria-label="cerrar" class="sidebar__icon-button material-symbols-outlined">Close</span></label>
+
+                <input id="sidebar__check" type="checkbox">
+
+            </div>
+
+        </div>
+
+        <div class="container__dashboard">
+            <header class="header">
+                <picture class="header__picture">
+                    <source srcset="img/logo_small.png" media="(max-width: 500px)">
+                    <img class="header__img" src="img/logo.png" alt="logo">
+                </picture>
+                <h1 class="header__title">Panel de Control</h1>
+            </header>   
+
+            <main class="container__dashboard-data">
+                <section class="followers">
+                    <div class="card">
+                        <img class="card__img" src="img/youtube.png" alt="imagen red social">
+                        <h2 class="card__title">Youtube</h2>
+                        <p class="card__p">1.500 followers</p>
+                    </div>
+    
+                    <div class="card">
+                        <img class="card__img" src="img/instagram.png" alt="imagen red social">
+                        <h2 class="card__title">Instagram</h2>
+                        <p class="card__p">4.500 followers</p>
+                    </div>
+                </section>
+    
+                <section class="others">
+                    <div class="card">
+                        <img class="card__img" src="img/audiencia.png" alt="imagen de audiencia">
+
+                        <h2 class="card__title">Audiencia</h2>
+                        <p class="card__p">Se han unido 22.000 personas</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="card__img" src="img/interaccion.png" alt="imagen interaccion con red social">
+
+                        <h2 class="card__title">Visitas al Canal</h2>
+                        <p class="card__p">30.000 visitas</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="card__img" src="img/alcanzados.png" alt="imagen de cuentas">
+
+                        <h2 class="card__title">Cuentas alcanzadas</h2>
+                        <p class="card__p">2.000</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="card__img" src="img/ingresos.png" alt="imagen de dinero">
+
+                        <h2 class="card__title">Ingresos mensuales</h2>
+                        <p class="card__p">$200.000</p>
+                    </div>
+
+
+
+                </section>
+
+            </main>
+
+            
+
+            <footer class="footer">
+                <div class="footer__logo">
+                    <h2>Mr technology</h2>
+                    <img class="footer__img" src="img/mr.png" alt="imagen de logo de mr technology">
+                </div>
+                
+
+                <h2>Panel de control</h2>
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>
