@@ -1,0 +1,30 @@
+/* Configuración de estilos personalizados para Jazzmin */
+
+/* Navbar */
+.navbar {
+    background-color: #50322a; /* Color primario */
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #faf3ed; /* Color secundario */
+}
+
+/* Acento */
+.bg-accent-primary {
+    background-color: #50322a; /* Color primario */
+}
+
+/* Botones */
+.btn-outline-primary {
+    border-color: #50322a; /* Color primario */
+    color: #50322a; /* Color primario */
+}
+.btn-outline-primary:hover {
+    background-color: #50322a; /* Color primario */
+    border-color: #50322a; /* Color primario */
+    color: #fff; /* Color de texto en hover */
+}
+
+/* Otros estilos personalizados */
+/* Agrega aquí tus propias personalizaciones adicionales */

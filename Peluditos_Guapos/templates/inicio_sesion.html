@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+  
+   <div class="container  fondo-inicio text-center">
+
+    {% if messages %}
+      {% for message in messages %}
+
+       {% if message.tags == 'success'%}
+       <div class="alert alert-success mt-3" role="alert">
+          {{ message }}
+        </div>
+
+       {%else%}
+        
+       <div class="alert alert-danger mt-3">
+
+        {{ message }}
+       </div>
+       {%endif%}
+
+
+      {%endfor%}
+
+    {%endif%}
+
+    
+    <div class="row justify-content-around align-items-center vh-100">
+      <div class="col-4">
+        <h1 class="texto-primario mi-letra">Peluditos Guapos</h1>
+        <img src="{% static 'images/cajita_adopcion.png' %}" width="150px" height="150px">
+      </div>
+
+      <div class="col-7">
+        <h1 class="text-center texto-primario mi-letra">Inicio De Sesion</h1>
+        <br><br>
+
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-floating mb-3">
+            <input name="username" type="" class="form-control" id="floatingInput" placeholder="">
+            <label for="floatingInput">Usuario</label>
+          </div>
+          <div class="form-floating">
+            <input  name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label  for="floatingPassword">contraseña</label>
+            <div class="mt-3">
+              <button  type="submit " class="btn btn-primary btn borde-primario mi-letra ">Iniciar Sesion</button>
+              <a  href="{%url 'registrarme'%}" class="btn borde-segundo mi-letra" type="submit" ">No tengo Cuenta</a>
+            </div>
+            
+          </div>
+        </form>
+
+      </div>
+      
+    </div>
+
+</body>
+</html>

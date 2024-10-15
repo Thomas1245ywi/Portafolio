@@ -1,0 +1,8 @@
+<form action="{% url 'CajaMascotas:add' %}" method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="pet_id" value= '{{ pet.id }}'>
+    <button class="btn btn-primary" type="submit">Agregar a la caja</button>
+</form>
+
+

@@ -1,0 +1,46 @@
+<form class="formulario-eliminar" action="{% url 'CarroProductos:removee' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="product_id" value="{{ product_in_box.product.id }}">
+    <button class="btn btn-link text-danger" style="padding: 0px;" type="submit">Eliminar Producto</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Seleccion de todos los formularios de eliminación
+        const formulariosEliminar = document.querySelectorAll('.formulario-eliminar');
+
+        // Itera formulario y agrega el evento submit
+        formulariosEliminar.forEach(formulario => {
+            formulario.addEventListener('submit', function(e) {
+                e.preventDefault(); // aca evita el envío del formulario por defecto
+
+                // aca se muestra la alerta SweetAlert2
+                const swal = Swal.mixin({
+                    buttonsStyling: true
+                });
+                swal.fire({
+                    title: '¿Estás seguro que quieres eliminar el producto?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Si, eliminar',
+                    cancelButtonText: 'No, cancelar',
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Si usuario confirma, se envía o pasa a el formulario actual
+                        formulario.submit();
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        // Si usuario cancela, muestra esta mensaje de error
+                        swal.fire({
+                            title: 'Cancelado',
+                            text: 'El producto no fue eliminado :)',
+                            icon: 'error'
+                        });
+                    }
+                });
+            });
+        });
+    });
+</script>

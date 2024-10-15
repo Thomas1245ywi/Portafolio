@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Tipos de PQRS más repetitivos</title>
+</head>
+<body>
+    <h1>Reporte de Tipos de PQRS más repetitivos</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Tipo de PQRS</th>
+                <th>Cantidad de PQRS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tipo_pqrs in tipos_pqrs_con_cantidad %}
+            <tr>
+                <td>{{ tipo_pqrs.Tipo_pqrs }}</td>
+                <td>{{ tipo_pqrs.cantidad_pqrs }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No hay tipos de PQRS registrados.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

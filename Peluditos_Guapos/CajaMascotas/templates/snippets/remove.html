@@ -1,0 +1,46 @@
+<form class="formulario-eliminar" action="{% url 'CajaMascotas:remove' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="pet_id" value="{{ pet.id }}">
+    <button class="btn btn-link text-danger" style="padding: 0px;" type="submit">Eliminar</button>
+</form>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    // Asegúrate de que el documento esté completamente cargado antes de ejecutar el script
+    document.addEventListener('DOMContentLoaded', function() {
+        // Agrega el evento submit al formulario
+        document.querySelector('.formulario-eliminar').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita el envío del formulario por defecto
+
+            // Muestra la alerta SweetAlert2
+
+            const swal = Swal.mixin({
+            buttonsStyling: true,
+            
+            });
+            swal.fire({
+                title: '¿Estás seguro que quieres eliminar la mascota?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Si, eliminar',
+                cancelButtonText: 'No, cancelar',
+                reverseButtons: true
+                
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Si el usuario confirma, envía el formulario
+                    e.target.submit();
+                   
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    // Si el usuario cancela, muestra un mensaje de error
+                    swal.fire({
+                        title: 'Cancelado',
+                        text: 'La mascota sigue en su lugar :)',
+                        icon: 'error'
+                    });
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Historial de Compras</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row cabecera p-3 mb-3"> 
+            <div class="d-flex justify-content-center">
+                <nav class="navbar bg-primary">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static 'images/Carro_Productos.png' %}" width="64px" height="64px">
+                        </div>
+                        <div class="col">
+                            <h4 class="titulillo">Historial de Compras</h4>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <h1 class="text-center">Informacion de Compras</h1>
+        <hr>
+        <ul class="list-group mt-4">
+            {% for compra in compras %}
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-3">
+                        <strong>Fecha:</strong> {{ compra.fecha_compra }}<br>
+                        <img src="{{ compra.product.photo.url }}" alt="{{ compra.product.name }}" width="100"><br>
+                    </div>
+                    <div class="col-md-9">
+                        <strong>Información de Envío:</strong><br>
+                        <strong>Nombre:</strong> {{ compra.full_name }}<br>
+                        <strong>Teléfono:</strong> {{ compra.phone }}<br>
+                        <strong>Dirección:</strong> {{ compra.address }}<br>
+                        <strong>Ciudad:</strong> {{ compra.city }}<br>
+                        <strong>Barrio:</strong> {{ compra.neighborhood }}<br>
+                        <strong>Estado de Envío:</strong> {{ compra.estado_envio }}<br>
+                    </div>
+                </div>
+            </li>
+            {% empty %}
+            <li class="list-group-item">No hay compras anteriores.</li>
+            {% endfor %}
+        </ul>
+
+        
+        <div class="row mt-3">
+            <div class="col">
+                <a href="/index_real" class="btn btn-primary btn border-secondary mi-letra mt-2" type="submit">Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

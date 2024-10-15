@@ -1,0 +1,20 @@
+<div class="mb-5 mx-3">
+    <form action="" method="post">
+        {% csrf_token %}
+    
+        {% for field in product_form %}
+            <div class="form-group mt-3">
+                {{ field.label_tag }}
+                {{ field }}
+    
+                {% if field.errors %}
+                    {{ field.errors }}
+                {% endif %}
+            </div>
+        {% endfor %}
+        
+        <button class="btn btn-primary mt-3" type="submit">Enviar</button>
+    </form>
+
+    <a href="{% url 'CarroProductos:caja_productos' %}" class="btn btn-primary mt-3">Ir al Carro de Productos</a>
+</div>

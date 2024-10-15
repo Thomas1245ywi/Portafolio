@@ -1,0 +1,19 @@
+<div class="row mt-2 align-items-center ">
+
+    <h3>Mascotas a Adoptar:</h3>
+    
+    <div class="col-3 mt-5">
+        {%if pet.photo %}
+            <img src="{{ pet.photo.url }}" alt="Imagen de la mascotas" width="80px" height="80px">
+
+        {%endif%}
+    </div>
+
+    <div class="col">
+        <div class="row">
+            <a href="{% url 'detalles_mascota' pet.slug %}">{{ pet.name }}</a>
+
+           
+        </div>
+    </div>
+</div>

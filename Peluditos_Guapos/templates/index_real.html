@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <title>Document</title>
+</head>
+<body>
+  
+   <div class="container text-center ">
+
+    {% if messages %}
+    {% for message in messages %}
+
+     {% if message.tags == 'success'%}
+     <div class="alert alert-success mt-3" role="alert">
+        {{ message }}
+      </div>
+
+     {%else%}
+      
+     <div class="alert alert-danger mt-3">
+
+      {{ message }}
+     </div>
+     {%endif%}
+
+
+    {%endfor%}
+
+  {%endif%}
+        <div class="row bg-primary rounded">
+                
+                <div class="d-flex no-wrap align-items-center titulillo justify-content-around">
+
+                    <div>
+                        <h3>Peluditos Guapos</h3> 
+                    </div>
+                    
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                            <a class="nav-link active mi-letra" aria-current="page" href="{%url 'adopcion'%}">Adoptar Mascota</a>
+                            <a class="nav-link active mi-letra" aria-current="page" href="{%url 'productos'%}">Productos</a>
+                            <a class="nav-link active mi-letra" aria-current="page" href="{%url 'formulario_pqrs'%}">PQRS</a>
+                            <a class="nav-link active mi-letra" aria-current="page" href="{%url 'formulario_adopcion:details'%}">Mis Adopciones</a>
+                            <a class="nav-link active mi-letra" aria-current="page" href="{%url 'Formulario_Productos:historial_compras'%}">Mis Compras</a>
+                 
+
+
+                    <a href="{%url 'cerrar_sesion'%}">
+                        <img src="{% static 'images/logout.png' %}" alt="cerrar sesion" width="80px" height="80px">
+                    </a>
+
+
+                </div>
+
+                            
+
+        </div>
+     
+          
+    
+   
+
+
+        <div class="row align-items-center row mt-1 justify-content-evenly gy-2 text-center">
+            <div class="col">
+                <h1 class="mt-4  mt-3">Bienvenido a Peluditos Guapos</h1>
+                <br>
+                <h3>"Forjando conexiones profundas a través de productos excepcionales y adopciones significativas: Donde cada compra es un paso hacia un hogar amoroso y cada mascota encuentra su felicidad eterna."</h3>
+            </div>
+            <div class="col">
+                <img src="../static/images/perro_corazon.png" alt="">
+            </div>
+
+        </div>
+        
+        <div class="row  mt-4 text-center ">
+            <h2>Envios en todo el Pais</h2>
+            
+            <div class="col card text-center mt-3 p-3 ">
+                
+                <br>
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <img src="../static/images/domiciliario.png" width="290px" height="250px">
+                    </div>
+                    <div class="col">
+                        <h2 class="mb">En Bogota</h2>
+                        <p>En Bogotá, nuestros propios mensajeros llevan la esencia de nuestra tienda directamente
+                            a tu hogar. Cada entrega es una oportunidad para compartir la pasión por productos 
+                            excepcionales y el amor por las mascotas. Confía en nosotros para brindarte una 
+                            experiencia de entrega personalizada y llena de cariño. Tu mascota merece lo mejor,
+                            y estamos aquí para traerlo a tu puerta con dedicación y alegría.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="row  mt-4 mb-4 text-center ">
+            
+            
+            <div class="col card text-center mt-3 p-3 ">
+               
+                <br>
+                <div class="row align-items-start">
+                    <div class="col-3">
+                        <div class="row align-items-center">
+                            <img src="../static/images/servientrega.png" >
+
+                        </div>
+                        <div class="row">
+                            <img src="../static/images/interRapidisimo.png">
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h2 >Fuera de Bogota</h2>
+                        <p>Desde de Bogotá hasta los rincones más lejanos de nuestro país, llevamos la promesa de amor y cuidado a cada hogar. A través de Servientrega o InterRapidismo, trascendemos las distancias para unir corazones y brindar alegría a cada mascota y su familia. Cada entrega es una conexión, un puente de felicidad que cruzamos con determinación y pasión. Porque sabemos que no hay límites para el amor que sentimos por los animales y la satisfacción de nuestros clientes. Juntos, creamos una red de afecto que abarca todo el territorio, haciendo que cada rincón se ilumine con la chispa de la amistad y la dedicación que nos impulsa. En cada envío, en cada sonrisa que generamos, estamos escribiendo una historia de cuidado incondicional y compromiso con nuestras mascotas y sus hogares.</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+           
+        <footer class="text-center text-lg-start card mb-2 text-muted">
+            
+            <section class="">
+              <div class="row text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                  <!-- Grid column -->
+                  <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <!-- Content -->
+                    <h6 class="text-uppercase fw-bold mb-4">
+                      <i class="fas fa-gem me-3 text-secondary"></i>Peluditos Guapos
+                    </h6>
+                    <p>
+                        Ahora que nos conoces, eres parte de algo especial. Cada elección que hagas 
+                        aquí es un paso hacia el amor y la felicidad compartida con tu mascota. 
+                        Bienvenido a nuestra comunidad,donde cada día es una oportunidad para crear 
+                        momentos inolvidables juntos
+                    </p>
+                  </div>
+                 
+                  <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <!-- Links -->
+                    <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
+                    <p><i class="fas fa-home me-3 text-secondary"></i> Chapinero,Bogota</p>
+                    <p>
+                      <i class="fas fa-envelope me-3 text-secondary"></i>
+                      PeluditosGuaposOficial@gmail.com
+                    </p>
+                    <p><i class="fas fa-phone me-3 text-secondary"></i> + 57 320 2907736</p>
+                    
+                  </div>
+                  <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+              </div>
+            </section>
+            <!-- Section: Links  -->
+          
+            <!-- Copyright -->
+            <div class="text-center p-4" style="background-color: rgb(167, 163, 163);">
+              © 2023 Copyright:
+              <h6>Peluditos Guapos</h6>
+            </div>
+            <!-- Copyright -->
+          </footer>
+
+
+      </div>
+      
+   
+    
+        
+
+      
+   
+    
+
+
+</body>
+</html>

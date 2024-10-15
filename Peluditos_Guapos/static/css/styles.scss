@@ -1,0 +1,80 @@
+$primary: #50322a;
+$secondary: #faf3ed;
+$danger: #ad0303;
+$success: #019901cd;
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "danger": $danger,
+    "success": $success
+);
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+
+
+body{
+    background-color: #faf3ed;
+    font-family: 'Comic Neue', cursive;
+    font-family: 'Kalam', cursive;
+}
+
+
+
+.fondo-inicio {
+    background-color: #faf3ed;
+}
+
+.texto-primario{
+    color: #50322a;
+}
+
+.borde-primario{
+    background-color: #50322a;
+    border-radius: 8px;
+    color: #faf3ed;
+    
+}
+
+.borde-primario:hover{
+    background-color: #50322a;
+    border-radius: 8px;
+    color: #faf3ed;
+    
+}
+
+
+
+.borde-segundo{
+
+    
+    border-radius: 8px;
+    border: 1px solid #000;
+    color: #000;
+    
+}
+.borde-segundo:hover{
+    
+    border-radius: 8px;
+    border: 1px solid #000;
+    color: #000;
+    
+}
+
+.titulillo{
+    color: white;
+   
+}
+
+.cabecera{
+    background-color: #50322a;
+    color: white;
+  
+}
+
+.imagen {
+    position: fixed;
+    bottom: 0;
+    
+}
+

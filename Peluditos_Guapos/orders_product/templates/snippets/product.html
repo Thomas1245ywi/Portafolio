@@ -1,0 +1,18 @@
+<div class="row mt-2 align-items-center">
+    <div class="col-3">
+        {% if product.photo %}
+            <img src="{{ product.photo.url }}" alt="Imagen del producto" width="80px" height="80px">
+        {% endif %}
+    </div>
+
+    <div class="col">
+        <div class="row">
+            <a href="{% url 'detalles_productos' product.id %}">{{ product.name }}</a>
+        </div>
+        <div class="row">
+            <strong class="text-danger">
+                {{ product.product_type}}
+            </strong>
+        </div>
+    </div>
+</div>

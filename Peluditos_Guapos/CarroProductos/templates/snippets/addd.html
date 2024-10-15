@@ -1,0 +1,11 @@
+<form action="{% url 'CarroProductos:addd' %}" method="post" class="d-flex align-items-center">
+    {% csrf_token %}
+    <div class="input-group me-2" style="width: 180px;">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Cantidad:</span>
+        </div>
+        <input type="number" name="quantity" value="1" min="1" class="form-control">
+    </div>
+    <input type="hidden" name="product_id" value="{{ product.id }}">
+    <button class="btn btn-primary" type="submit">Agregar al Carrito</button>
+</form>

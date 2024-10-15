@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Revisa Tu Compra</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="col-12">
+            <h2 class="text-primary mt-3 mb-5 text-center">Revisa Tu Compra</h2>
+        </div>
+    
+        <div class="row mx-5">
+            <div class="col-8">
+                <div class="card">
+                    <div class="card-body">
+                        {% for product_in_box in box.product_in_boxes.all %}
+                            {% include 'snippets/product.html' with product=product_in_box.product %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-4">
+                {% include 'snippets/resumen.html' with box=box %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

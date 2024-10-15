@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+    <title>Caja de Productos</title>
+
+    <style>
+        /* Cambio color fondo  */
+        .badge-primary {
+            background-color:#50322a !important;
+        }
+
+        /* Cambio color  fondo */
+        .badge-secondary {
+            background-color: #50322a!important;
+        }
+
+        .color-primario {
+            color: #50322a !important; /* Paso a café */
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="container text-center">
+        <div class="row cabecera p-3">
+            <div class="d-flex justify-content-center">
+                <nav class="navbar bg-primary">
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static 'images/Carro_Productos.png' %}" width="64px" height="64px">
+                        </div>
+                        <div class="col">
+                            <h4 class="titulillo">Carro de compras</h4>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <h1 class="texto-primario">Tus Productos</h1>
+        
+        <div class="row mt-2 mx-2">
+            <div class="col-8">
+                {% if box.product_in_boxes.exists %}
+                    <table class="table table-secondary border">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Imagen</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Cantidad</th>
+                                <th scope="col">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for product_in_box in box.product_in_boxes.all %}
+                                <tr>
+                                    <th>{{ forloop.counter }}</th>
+                                    <th><img class="rounded" src="{{ product_in_box.product.photo.url }}" alt="Imagen Producto" width="100px" height="100px"></th>
+                                    <td><a href="{% url 'detalles_productos' product_in_box.product.id %}">{{ product_in_box.product.name }}</a></td>
+                                    <td>${{ product_in_box.product.price }}</td>
+                                    <td>{{ product_in_box.product.description }}</td>
+                                    <td>{{ product_in_box.product.product_type }}</td>
+                                    <td>{{ product_in_box.quantity }}</td>
+                                    <td>{% include 'snippets/removee.html' %}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p class="h3 text-primary">Tu Carro de compras está vacío</p>
+                    <img class="mt-3" src="{% static 'images/Carro_Productos.png' %}" width="150px" height="150px">
+                {% endif %}
+            </div>
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        {% if box.product_in_boxes.exists %}
+                            {% with total_products=box.product_in_boxes.all %}
+                                <h5 class="font-weight-bold">Productos: <span class="badge badge-primary">{{ total_products|length }}</span></h5>
+                            {% endwith %}
+                            <ul class="list-group">
+                                {% for product_in_box in box.product_in_boxes.all %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        {{ product_in_box.product.name }}
+                                        <span class="badge badge-secondary badge-pill">{{ product_in_box.quantity }}</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <div class="mt-3">
+                                <a href="{% url 'orders_product:orderss' %}" class="btn btn-primary btn-block">Continuar con la compra</a>
+                            </div>
+                        {% else %}
+                            <h5 class="font-weight-bold">Productos: 0</h5>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <a class="h2 color-primario text-primary" href="{% url 'productos' %}">Seguir Comprando Productos</a> <br>
+                <img class="mt-3" src="{% static 'images/Carro_Productos.png' %}" width="150px" height="150px">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

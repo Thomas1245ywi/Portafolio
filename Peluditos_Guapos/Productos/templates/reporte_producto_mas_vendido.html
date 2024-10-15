@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte del Producto Más Vendido</title>
+</head>
+<body>
+    <h1>Reporte del Producto Más Vendido</h1>
+    {% if producto_mas_vendido %}
+        <p>El producto más vendido es: {{ producto_mas_vendido.product__name }} con {{ producto_mas_vendido.total_vendido }} unidades vendidas.</p>
+    {% else %}
+        <p>No hay productos vendidos aún.</p>
+    {% endif %}
+</body>
+</html>

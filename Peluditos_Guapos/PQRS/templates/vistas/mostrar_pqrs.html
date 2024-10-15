@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles_pqrs.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Mostrar PQRS</title>
+    <style>
+        /* Estilos CSS adicionales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf3ed;
+        }
+        .navbar {
+            background-color: #50322a;
+            color: #faf3ed;
+            padding: 10px 0;
+            border-radius: 0;
+            text-align: center; /* Para centrar el texto en la barra de navegación */
+        }
+        .navbar h1 {
+            font-size: 30px;
+            margin: 0;
+            display: inline-block; /* Para centrar el título */
+            width: 100%; /* Añadir esta línea */
+        }
+        .table {
+            background-color: #faf3ed;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #50322a;
+            border-color: #50322a;
+            color: #faf3ed;
+            border-radius: 20px;
+            padding: 8px 20px;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        .btn-primary:hover {
+            background-color: #50322a;
+            border-color: #50322a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar">
+            <div class="container">
+                <h1>HISTORIAL DE MIS PQRS</h1>
+            </div>
+        </nav>
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Registro</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">Descripción</th>
+                                <th scope="col">Estado</th>
+                                <th scope="col">Respuesta</th>
+                                {% if mostrar_encabezado_acciones %} <!-- Mostrar Acciones solo si hay PQRS sin respuesta -->
+                                <th scope="col">Acciones</th>
+                                {% endif %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pqrs in pqrs_list %}
+                            <tr>
+                                <td>{{ pqrs.id }}</td>
+                                <td>{{ pqrs.Tipo_pqrs }}</td>
+                                <td>{{ pqrs.correo }}</td>
+                                <td>{{ pqrs.descripcion }}</td>
+                                <td>{{ pqrs.Estado.Estado_pqrs }}</td>
+                                <td>{{ pqrs.Respuesta }}</td>
+                                {% if mostrar_encabezado_acciones %}
+                                <td>
+                                    {% if not pqrs.Respuesta %}
+                                    <a href="{% url 'editar_pqrs' pqrs.id %}" class="btn btn-primary btn-sm">Editar</a> 
+                                    <a href="{% url 'eliminar_pqrs' pqrs.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                                    {% endif %}
+                                </td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-4">
+                    <a href="{% url 'formulario_pqrs' %}" class="btn btn-primary btn-block">Volver al Formulario de PQRS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

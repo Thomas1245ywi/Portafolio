@@ -1,0 +1,56 @@
+<!-- confirmacion_compra.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Compra</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+<div class="container fondo-inicio text-center">
+
+    <div class="row cabecera p-3">
+        <div class="d-flex justify-content-center">
+            <nav class="navbar bg-primary">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="{% static 'images/compra_confirmacion.png' %}" width="140px" height="80px">
+                    </div>
+                    <div class="col">
+                        <h4 class="text-white">Confirmación de Compra</h4>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col"></div>
+        <div class="col-8">
+            <h2>¡Gracias por tu compra!</h2>
+            <!--  detalles de la compra  -->
+            <p>¡Esperamos que disfrutes de tu producto!</p>
+            <a href="{% url 'productos' %}" class="btn btn-primary" type="button">Volver a Catalogo</a>
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <div class="row p-5"></div>
+    <div class="row p-5"></div>
+
+    <div class="row">
+        <div class="d-flex justify-content-end">
+            <img class="imagen" src="{% static 'images/carro_producto.png' %}" alt="" width="210px" height="">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

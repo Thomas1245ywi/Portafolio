@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte General de PQRS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Agrega el enlace al archivo CSS de Bootstrap -->
+    <style>
+        /* Agrega tus estilos personalizados aquí */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #50322a;
+            color: #faf3ed;
+        }
+        tr:nth-child(even) {
+            background-color: #faf3ed;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Reporte General de PQRS</h1>
+        <div class="table-container">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Registro</th>
+                        <th>Tipo</th>
+                        <th>Correo</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th>Respuesta</th>
+                        <th>Usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pqrs in pqrs_list %}
+                    <tr>
+                        <td>{{ pqrs.id }}</td>
+                        <td>{{ pqrs.Tipo_pqrs }}</td>
+                        <td>{{ pqrs.correo }}</td>
+                        <td>{{ pqrs.descripcion }}</td>
+                        <td>{{ pqrs.Estado }}</td>
+                        <td>{{ pqrs.Respuesta }}</td>
+                        <td>{{ pqrs.usuario }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

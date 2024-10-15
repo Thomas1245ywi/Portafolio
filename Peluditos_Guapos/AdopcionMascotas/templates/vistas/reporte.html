@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Mascotas</title>
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+</head>
+<body>
+    <div class="container  fondo-inicio text-center">
+        <h1 class="mt-5 mb-4">Mascotas Mas solicitadas</h1>
+        
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Tipo de Mascota</th>
+                        <th scope="col">Cantidad de solicitudes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="">{{ tipo_mas_comun }}</td>
+                        <td>{{ cantidad_tipo_mas_comun }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
